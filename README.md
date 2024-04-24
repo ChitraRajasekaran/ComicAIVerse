@@ -98,19 +98,10 @@ NOTE, this is a high-level implementation plan, and I may need to adjust it base
 ### Mockups
 
 #### Home Page
-![](home.png)
-
 #### Register Page
-![](register.png)
-
 #### Login Page
-![](login.png)
-
 #### Generate Image Page
-![](Generate-Image.png)
-
 #### Comic Showcase
-![](Comic-Showcase.png)
 
 ### Data
 
