@@ -58,7 +58,7 @@ Here's a high-level implementation plan:
 6. Implement additional features:
     - Implement any additional features you plan to include, such as user profiles, favoriting images, or social sharing.
 7. Styling and UI/UX:
-    - Style the application using CSS or a CSS-in-JS library like styled-components or Emotion.
+    - Style the application using CSS or Tailwind.
     - Ensure a consistent and user-friendly UI/UX design across all pages and components.
 8. Testing and deployment:
     - Deploy the client and server applications to a hosting platform like Vercel, Netlify, or Heroku.
