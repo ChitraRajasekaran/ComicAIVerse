@@ -181,7 +181,7 @@ NOTE :  I may need to change the authentication method based on constraints over
 
 - Feature: Home page
 
-- Feature: Create account
+- Feature: Create account / Google signOn
     - Implement register page + form
     - Create POST /users/register endpoint
 
@@ -189,7 +189,7 @@ NOTE :  I may need to change the authentication method based on constraints over
     - Implement login page + form
     - Create POST /users/login endpoint
 
-- Feature: Implement JWT tokens
+- Feature: Implement JWT tokens / OR other authentication services
     - Server: Update expected requests / responses on protected endpoints
     - Client: Store JWT in local storage, include JWT on axios calls
 
