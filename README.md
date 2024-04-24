@@ -169,7 +169,7 @@ NOTE :  I may need to change the authentication method based on constraints over
 
 - Create migrations
 
-- Gather 15 sample images/prompts generated 
+- Gather 15 sample Users generating images using prompts
 
 - Create seeds with sample data
 
