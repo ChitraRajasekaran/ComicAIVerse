@@ -1,6 +1,6 @@
-import Home from './Home';
-import CreatePost from './CreatePost';
-import Showcase from './Showcase';
+import Home from './Home.jsx';
+import CreatePost from './CreatePost.jsx';
+import Showcase from './Showcase.jsx';
 
 export {
     Home,
