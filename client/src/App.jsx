@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {logo} from './assets';
-import {Home,CreatePost,Showcase} from './pages';
+import {Home,CreatePost,Login, Showcase} from './pages';
 
 const App = () => {
   return (
@@ -10,13 +10,16 @@ const App = () => {
         <Link to = '/'>
           <img src={logo} alt ='logo' className='w-28 object-contain' />
         </Link>
-        <Link to ='/create-post' className='font-inter font-medium bg-[#6469FF] text-white px-4 py-2 
+        <Link to ='/create-post' className='font-inter font-medium bg-[#000000] text-[#FFBF00] px-4 py-2 
         rounded-md'>Generate Comic</Link>
+        <Link to ='/Login' className='font-inter font-medium bg-[#000000] text-[#FFBF00] px-4 py-2 
+        rounded-md'>Login</Link>
       </header>
       <main className='sm:p-8 px-4 py-8 w-full bg-[#f9f8fe] min-h-[calc(100vh-73px)]'>
         <Routes>
           <Route path ='/' element ={<Home />} />
           <Route path='/create-post' element = {<CreatePost />} />
+          <Route path='/Login' element = {<Login />} />
         </Routes>
       </main>
     </BrowserRouter>
