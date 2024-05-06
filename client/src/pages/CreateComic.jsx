@@ -8,6 +8,7 @@ function CreateComic() {
   const [progress, setProgress] = useState(0);
   const [isSubmitPressed, setIsSubmitPressed] = useState(false);
 
+  // Inside CreateComic component
   const generateComic = async (panelTexts) => {
     try {
       setIsSubmitPressed(true);

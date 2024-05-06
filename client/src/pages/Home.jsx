@@ -12,7 +12,7 @@ const Home = () => {
           </video>
         </div>
         <div className="bannerTextContainer text-center">
-          <h1 className="bannerText min-h-0 px-8 relative z-20 text-white text-center font-poppins font-semibold text-6xl leading-tight tracking-wide flex flex-wrap justify-center items-center gap-x-3">
+          <h1 className="bannerText min-h-0 px-8 text-center text-transparent bg-gradient-to-r from-red-600 via-yellow-400 to-pink-500 bg-clip-text text-6xl font-poppins font-semibold leading-tight tracking-wide filter drop-shadow-md flex flex-wrap justify-center items-center gap-x-3">
             <span>Create comics with AI in minutes</span>
           </h1>
           <h1 className="bannerTextGradient min-h-0 px-8 text-center text-transparent bg-gradient-to-r from-red-600 via-yellow-400 to-pink-500 bg-clip-text text-6xl font-poppins font-semibold leading-tight tracking-wide filter drop-shadow-md flex flex-wrap justify-center items-center gap-x-3">
