@@ -26,10 +26,9 @@ Save the changes by clicking on the "Save" or "Update" button. -->
 
 As a user, you will have access to the following essential features:
 
-1. User Authentication: Securely log in using a reliable user authentication system. This system will store your personal information and comic creations in a database, utilizing popular technologies like Mongo, MySQL, or other suitable databases.
-2. AI-Generated Comic Images: Create comic book images by inputting prompts, such as The Hulk trying to learn meditation and yoga to control his anger. The app will call upon AI tools like OpenAI DALL-E or other free AI tools to generate these comic book images based on your input.
-3. Image Sharing and Download: Share your comic book images on the website showcase or download them as a PDF for personal use or offline viewing.
-4. Showcase of Comic Images: Explore a curated showcase of 10 or so generated comic images on the app's home page, as well as a dedicated Comic Showcase page displaying all user-generated comic images. This feature will allow you to draw inspiration from the creativity of other users.
+1. AI-Generated Comic Images: Create comic book images by inputting prompts, such as The Hulk trying to learn meditation and yoga to control his anger. The app will call upon AI tools like OpenAI DALL-E or other free AI tools to generate these comic book images based on your input.
+2. Image Sharing and Download: Share your comic book images on the website showcase or download them as a PDF for personal use or offline viewing.
+3. Showcase of Comic Images: Explore a curated showcase of 10 or so generated comic images on the app's home page, as well as a dedicated Comic Showcase page displaying all user-generated comic images. This feature will allow you to draw inspiration from the creativity of other users.
 
 ## Implementation
 Here's a high-level implementation plan:
@@ -37,11 +36,8 @@ Here's a high-level implementation plan:
     - Create a new React project using a tool like Create React App or Vite.
     - Install necessary dependencies, such as React Router for navigation, Axios for making API requests, and any UI component libraries you plan to use.
 2. Implement user authentication:
-    - Decide on the authentication method (e.g., JSON Web Tokens (JWT), OAuth, or traditional session-based authentication).
     - Create a backend server using a framework like Express.js or Next.js for handling authentication and API requests.
     - Set up a database (e.g., MongoDB, MySQL) to store user information.
-    - Implement the /users/register and /users/login endpoints on the server for user registration and authentication.
-    - On the client-side, create a Register and Login page for handling user registration and authentication.
 3. Integrate AI image generation:
     - Research and choose an AI image generation API or tool, such as OpenAI's DALL-E or other alternatives.
     - Implement the necessary API calls on the server-side to generate images based on user prompts.
@@ -58,11 +54,9 @@ Here's a high-level implementation plan:
 6. Implement additional features:
     - Implement any additional features you plan to include, such as user profiles, favoriting images, or social sharing.
 7. Styling and UI/UX:
-    - Style the application using CSS or Tailwind.
+    - Style the application using Tailwind.
     - Ensure a consistent and user-friendly UI/UX design across all pages and components.
-8. Testing and deployment:
-    - Deploy the client and server applications to a hosting platform like Vercel, Netlify, or Heroku.
-    - Consider implementing error handling, input validation, and security measures to ensure a robust and secure application.
+
 
 NOTE, this is a high-level implementation plan, and I may need to adjust it based on specific requirements, constraints, and the technologies I choose to use over the period of implementation.
 
@@ -164,13 +158,7 @@ NOTE :  I may need to change the authentication method based on constraints over
     - React project with routes and boilerplate pages
 
 - Create server:
-    - Express project with routing, with placeholder 200 responses
-
-- Create migrations
-
-- Gather 15 sample Users generating images using prompts
-
-- Create seeds with sample data
+    - Express project with routing, with placeholder 20 responses
 
 - Deploy client and server projects so all commits will be reflected in production
 
@@ -179,18 +167,6 @@ NOTE :  I may need to change the authentication method based on constraints over
 - Feature: Comic Showcase Page
 
 - Feature: Home page
-
-- Feature: Create account / Google signOn
-    - Implement register page + form
-    - Create POST /users/register endpoint
-
-- Feature: Login
-    - Implement login page + form
-    - Create POST /users/login endpoint
-
-- Feature: Implement JWT tokens / OR other authentication services
-    - Server: Update expected requests / responses on protected endpoints
-    - Client: Store JWT in local storage, include JWT on axios calls
 
 - Bug fixes
 
