@@ -56,7 +56,7 @@ const CreatePost = () => {
           body: JSON.stringify(form),
         });
         await response.json();
-        navigate('/');
+        navigate('/create-imageshowcase');
           } catch(err) {
             alert(err)
           }finally{
