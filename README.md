@@ -121,34 +121,8 @@ The app utilizes two main tables:
 - Redirects to the Generate Image page
 
 
-
-**POST /users/register**
-
-- Add a user account
-
-Parameters:
-- email: User's email
-- password: User's provided password
-
-**POST /users/login**
-
-- Login a user
-
-Parameters:
-- email: User's email
-- password: User's provided password
-
 NOTE :  I may need to adjust endpoints based on specific requirements, constraints, and the technologies I choose to use over the period of implementation.
 
-### Auth
-
-- JWT Auth
-    - Before adding auth, all API requests will be using a fake user with id 1
-    - Added after core features have first been implemented
-    - Store JWT in localStorage, remove when a user logs out
-    - Add states for logged in showing different UI in places listed in mockups
-
-NOTE :  I may need to change the authentication method based on constraints over the period of implementation.
 
 ## Roadmap
 
