@@ -202,3 +202,38 @@ NOTE :  I may need to change the authentication method based on constraints over
 - The future of this app is to have users generate an entire comic strip with just an AI prompt
 - Future plans are to create own LLM so don’t need to pay or use someone else’s and to tailor it to comic generation
 - Inspired by kids’ love for Amazing Spider Man, generating a comic using someone’s face - this could be implemented with this or could be a whole new iOS app where user clicks their own face using camera feature and chooses from a list of comic characters or records or describes their own story to generate a comic strip and share it with everyone.
+
+## Installations
+Libraries to install :
+
+##Client side  ->
+
+vite : npm create vite@latest ./
+
+npm install
+
+npm run dev
+`npm install react-grid-layout`
+`npm install html2canvas`
+
+Tailwind installation:
+
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+
+npm install file-saver
+
+npm install react-rotuer-dom
+
+##Server side -> 
+
+npm init -y
+
+npm install cloudinary cors dotenv express mongoose nodemon openai
+
+npm install -g sequelize 
+
+npm install -g sequelize-cli
+
+npm install react-grid-layout
