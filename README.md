@@ -98,10 +98,9 @@ NOTE, this is a high-level implementation plan, and I may need to adjust it base
 ### Mockups
 
 #### Home Page
-#### Register Page
-#### Login Page
 #### Generate Image Page
-#### Comic Showcase
+#### Image Showcase
+#### Generate Comic Strip
 
 ### Data
 
