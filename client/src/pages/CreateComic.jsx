@@ -20,10 +20,7 @@ function CreateComic() {
       console.error('Error generating comic:', error);
     }
   };
-  const [loading, setLoading] = useState(false);
-  const handleSubmit = async () => {
 
-  }
   return (
     <div className="outer-container">
       <div className="flex flex-col items-center min-h-screen py-8">
