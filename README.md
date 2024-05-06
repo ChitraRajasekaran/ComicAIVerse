@@ -120,9 +120,7 @@ The app utilizes two main tables:
 
 - Redirects to the Generate Image page
 
-**POST /create-post/:id
 
-- Logged-in users can add their generated image to the Comic Showcase
 
 **POST /users/register**
 
