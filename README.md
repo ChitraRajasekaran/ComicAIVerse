@@ -10,6 +10,10 @@ An app that generates comic book images and comic strips using AI.
 
 ![FireShot Capture 003 - ComicAIVerse - localhost](https://github.com/ChitraRajasekaran/ComicAIVerse/assets/7893701/21acd9e1-4083-4d61-acbc-de6c83dd016b)
 
+![image](https://github.com/ChitraRajasekaran/ComicAIVerse/assets/7893701/40352d67-8436-4025-b768-f3bdaea93feb)
+
+![image](https://github.com/ChitraRajasekaran/ComicAIVerse/assets/7893701/37736d19-e636-48b5-8c59-32d1e9d82b25)
+
 
 ### Problem
 
