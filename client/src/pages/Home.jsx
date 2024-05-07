@@ -11,6 +11,7 @@ const Home = () => {
             <source src={video} type="video/mp4" />
           </video>
         </div>
+        <div className="absolute inset-0 bg-black opacity-70"></div>
         <div className="bannerTextContainer text-center">
           <h1 className="bannerText min-h-0 px-8 text-center text-transparent bg-gradient-to-r from-red-600 via-yellow-400 to-pink-500 bg-clip-text text-6xl font-poppins font-semibold leading-tight tracking-wide filter drop-shadow-md flex flex-wrap justify-center items-center gap-x-3">
             <span>Welcome to ComicAIVerse</span>
