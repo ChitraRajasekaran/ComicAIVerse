@@ -2,7 +2,14 @@
 
 ## Overview
 
-An app that generates comic book images using AI.
+An app that generates comic book images and comic strips using AI.
+
+![FireShot Capture 001 - ComicAIVerse - localhost](https://github.com/ChitraRajasekaran/ComicAIVerse/assets/7893701/12edcf54-5082-4321-863e-f9e0a9e35230)
+
+![FireShot Capture 002 - ComicAIVerse - localhost](https://github.com/ChitraRajasekaran/ComicAIVerse/assets/7893701/dc41eeda-b09b-4ac1-bacd-f599a2a22cd1)
+
+![FireShot Capture 003 - ComicAIVerse - localhost](https://github.com/ChitraRajasekaran/ComicAIVerse/assets/7893701/21acd9e1-4083-4d61-acbc-de6c83dd016b)
+
 
 ### Problem
 
@@ -72,10 +79,9 @@ NOTE, this is a high-level implementation plan, and I may need to adjust it base
     - Axios
     - Vite
 - Server libraries:
-    - Knex / MongoDB Atlas
+    - MongoDB Atlas
     - Express
-    - Bcrypt for password hashing
-- Styling : CSS/ Tailwind
+- Styling : Tailwind
 
 ### APIs
 
