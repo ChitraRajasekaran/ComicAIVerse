@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import {logo} from './assets';
-import {Home,CreatePost,Login, Showcase, CreateComic} from './pages';
+import {Home,CreatePost,Login, Showcase, CreateComic, CreateStory} from './pages';
 
 const App = () => {
   return (
@@ -20,9 +20,13 @@ const App = () => {
         <Link to='/create-comic' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
           Generate Comic Strips
         </Link>
+        <Link to='/create-story' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
+          Generate Story
+        </Link>
         <Link to='/login' className='font-inter font-medium text-pink-200 px-4 py-2 rounded-md block sm:inline-block'>
           Login
         </Link>
+
       </nav>
     </header>
 
@@ -33,6 +37,7 @@ const App = () => {
           <Route path='/create-image' element = {<CreatePost />} />
           <Route path='/create-comic' element = {<CreateComic />} />
           {/* <Route path='/Login' element = {<Login />} /> */}
+          <Route path ='/create-story' element = {<CreateStory />} />
         </Routes>
       </main>
     </BrowserRouter>
