@@ -26,12 +26,12 @@ const openai = new OpenAIApi({
             size:'1024x1024',
         })
         const image = aiResponse.data[0].url;
-        res.status(200).json({success: true, photo: image});
-    } catch(error) {
-        console.error(error);
-        res.status(500).send('Something went wrong');
-    }
-  })
+    res.status(200).json({ success: true, photo: image, story: story });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Something went wrong');
+  }
+});
 
 
   export default router;
