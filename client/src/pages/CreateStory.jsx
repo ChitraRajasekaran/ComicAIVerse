@@ -47,7 +47,7 @@ const CreateStory = () => {
     name: '',
     prompt: '',
     story: '',
-    image: '',
+    images: [],
   });
 
   const handleSubmit = async (e) => {
@@ -63,7 +63,7 @@ const CreateStory = () => {
 
       const data = await response.json();
       if (data.success) {
-        setForm({ ...form, story: data.data.story, image: data.data.photo });
+        setForm({ ...form, story: data.data.story, images: data.data.images });
       } else {
         console.error('Error:', data.message);
       }
@@ -126,10 +126,14 @@ const CreateStory = () => {
           </div>
         </div>
       )}
-      {form.image && (
+      {form.images.length > 0 && (
         <div className='mt-8'>
-          <h2 className='font-semibold text-lg text-[#222328]'>Generated Image:</h2>
-          <img src={form.image} alt="Generated" className='mt-2'/>
+          <h2 className='font-semibold text-lg text-[#222328]'>Generated Images:</h2>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4'>
+            {form.images.map((image, index) => (
+              <img key={index} src={image} alt={`Generated ${index + 1}`} className='w-full h-auto rounded-md'/>
+            ))}
+          </div>
         </div>
       )}
     </section>

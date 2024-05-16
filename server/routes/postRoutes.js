@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv';
 import { v2 as cloudinary } from 'cloudinary';
 import Post from '../mysqldb/models/post.js';
 import OpenAIApi from 'openai';
+import sharp from 'sharp';
+import axios from 'axios';
 
 dotenv.config();
 
@@ -33,14 +35,14 @@ router.post('/', async (req, res) => {
   try {
     const { name, prompt } = req.body;
 
-    // Generate Image
-    const aiImageResponse = await openai.images.generate({
-      model: 'dall-e-3',
-      prompt,
-      n: 1,
-      size: '1024x1024',
-    });
-    const image = aiImageResponse.data[0].url; // Ensure the correct path to the image URL
+    // // Generate Image
+    // const aiImageResponse = await openai.images.generate({
+    //   model: 'dall-e-3',
+    //   prompt,
+    //   n: 1,
+    //   size: '1024x1024',
+    // });
+    // const image = aiImageResponse.data[0].url; // Ensure the correct path to the image URL
 
   // Generate Story
   const aiStoryResponse = await openai.chat.completions.create({
@@ -53,20 +55,30 @@ router.post('/', async (req, res) => {
     console.log('OpenAI Story Response:', aiStoryResponse.choices[0].message.content);
 
     const story = aiStoryResponse.choices[0].message.content.trim();
-    
+    const storyLines = story.split('\n');
 
+    const images = await Promise.all(
+      storyLines.map(async (line) => {
+        const aiImageResponse = await openai.images.generate({
+          model: 'dall-e-3',
+          prompt: line,
+          n: 1,
+          size: '1024x1024',
+        });
     // Upload Image to Cloudinary
-    const photoUrl = await cloudinary.uploader.upload(image);
-
+    const photoUrl = await cloudinary.uploader.upload(aiImageResponse.data[0].url);
+    return photoUrl.url;
+  })
+);
     // Create New Post
     const newPost = await Post.create({
       name,
       prompt,
-      photo: photoUrl.url,
+      photo: images[0],
       story, // Ensure your Post model has a story field
     });
 
-    res.status(200).json({ success: true, data: { photo: photoUrl.url, story } });
+    res.status(200).json({ success: true, data: { story, images } });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: 'Unable to create a post, please try again' });
