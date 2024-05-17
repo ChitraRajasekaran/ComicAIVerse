@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
     const images = await Promise.all(
       storyLines.map(async (line) => {
         const aiImageResponse = await openai.images.generate({
-          model: 'dall-e-3',
+          model: 'dall-e-2',
           prompt: line,
           n: 1,
           size: '1024x1024',
