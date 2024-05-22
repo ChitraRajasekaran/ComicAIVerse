@@ -56,7 +56,7 @@ const CreatePost = () => {
           body: JSON.stringify(form),
         });
         await response.json();
-        navigate('/create-imageshowcase');
+        navigate('/create-showcase');
           } catch(err) {
             alert(err)
           }finally{
@@ -80,7 +80,7 @@ const CreatePost = () => {
   return (
     <section className='max-w-7x1 mx-auto'>
         <div>
-            <h1 className='font-extrabold text-[#222328] text-[32px]'>Generate</h1>
+            <h1 className='font-extrabold text-[#222328] text-[32px]'>Generate Covers</h1>
             <p className='mt-2 text-[#666e75] text-[14px] max-w[500px]'> Generate imaginative and visually stunning cover images of comic books and share them with ComicAIVerse community</p>
         </div>
       <form className='mt-16 max-w-3x1'  onSubmit={handleSubmit}>
@@ -98,7 +98,7 @@ const CreatePost = () => {
             labelName="Prompt"
             type="text"
             name="prompt"
-            placeholder="Batman and Robin trying to stop the Joker from turning Gotham City into a giant amusement park"
+            placeholder="Iron Man and Captain America having a rap battle to settle their differences"
             value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe

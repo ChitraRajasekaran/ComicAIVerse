@@ -35,15 +35,6 @@ router.post('/', async (req, res) => {
   try {
     const { name, prompt } = req.body;
 
-    // // Generate Image
-    // const aiImageResponse = await openai.images.generate({
-    //   model: 'dall-e-3',
-    //   prompt,
-    //   n: 1,
-    //   size: '1024x1024',
-    // });
-    // const image = aiImageResponse.data[0].url; // Ensure the correct path to the image URL
-
   // Generate Story
   const aiStoryResponse = await openai.chat.completions.create({
     model: 'gpt-4', // Update this to the available model

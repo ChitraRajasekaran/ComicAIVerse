@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Post = new mongoose.Schema({
   name: { type: String },
-  story: { type: String, required: true },
+  story: { type: String },
   prompt: { type: String},
   photo: { type: String, required: true },
 });
