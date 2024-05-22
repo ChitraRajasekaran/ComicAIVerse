@@ -11,17 +11,17 @@ const App = () => {
         Comic<span className="text-[#ffbf00]">AIVerse</span>
       </Link>
       <nav className="space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
-        <Link to='/create-image' className='font-inter font-medium text-white px-4 py-2 rounded-md block sm:inline-block'>
-          Generate Images
+        <Link to='/create-cover' className='font-inter font-medium text-white px-4 py-2 rounded-md block sm:inline-block'>
+          Comic Cover
         </Link>
-        <Link to='/create-imageshowcase' className='font-inter font-medium text-gray-200 px-4 py-2 rounded-md block sm:inline-block'>
-          Image Showcase
-        </Link>
-        <Link to='/create-comic' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
+        {/* <Link to='/create-comic' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
           Generate Comic Strips
-        </Link>
+        </Link> */}
         <Link to='/create-story' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
-          Generate Story
+          Comic Story
+        </Link>
+        <Link to='/create-showcase' className='font-inter font-medium text-gray-200 px-4 py-2 rounded-md block sm:inline-block'>
+          Showcase
         </Link>
         <Link to='/login' className='font-inter font-medium text-pink-200 px-4 py-2 rounded-md block sm:inline-block'>
           Login
@@ -33,9 +33,9 @@ const App = () => {
       <main className='sm:p-8 px-4 py-8 w-full bg-[#f9f8fe] min-h-[calc(100vh-73px)]'>
         <Routes>
           <Route path ='/' element ={<Home />} />
-          <Route path ='/create-imageshowcase' element ={<Showcase />} />
-          <Route path='/create-image' element = {<CreatePost />} />
-          <Route path='/create-comic' element = {<CreateComic />} />
+          <Route path ='/create-showcase' element ={<Showcase />} />
+          <Route path='/create-cover' element = {<CreatePost />} />
+          {/* <Route path='/create-comic' element = {<CreateComic />} /> */}
           {/* <Route path='/Login' element = {<Login />} /> */}
           <Route path ='/create-story' element = {<CreateStory />} />
         </Routes>

@@ -1,5 +1,8 @@
 import React from 'react';
 import video from '../assets/Final.mp4';
+import { Link } from 'react-router-dom';
+import storyImage from '../assets/story-image.jpg';
+import coverImage from '../assets/cover-image.jpg';
 
 const Home = () => {
   return (
@@ -12,7 +15,7 @@ const Home = () => {
           </video>
         </div>
         <div className="absolute inset-0 bg-black opacity-70"></div>
-        <div className="bannerTextContainer text-center">
+        <div className="bannerTextContainer text-center relative z-10">
           <h1 className="bannerText min-h-0 px-8 text-center text-transparent bg-gradient-to-r from-red-600 via-yellow-400 to-pink-500 bg-clip-text text-6xl font-poppins font-semibold leading-tight tracking-wide filter drop-shadow-md flex flex-wrap justify-center items-center gap-x-3">
             <span>Welcome to ComicAIVerse</span>
           </h1>
@@ -20,6 +23,22 @@ const Home = () => {
             <span>A Vast Collection of</span>
             <span>AI Comics</span>
           </h1>
+        </div>
+        <div className="card-container flex justify-center mt-16 relative z-10">
+          <Link to="/create-story" className="card bg-gray-200 rounded-lg shadow-lg p-6 mr-8 flex flex-col items-center">
+            <h2 className="text-center bg-gradient-to-r from-red-600 via-yellow-400 to-pink-500 bg-clip-text text-4xl font-poppins font-semibold leading-tight tracking-wide filter drop-shadow-md flex flex-wrap justify-center items-center gap-x-3">
+              <span className="text-[#6449ff]">Generate Story</span>
+            </h2>
+            <img src={storyImage} alt="Story" className="mt-4 max-h-72 object-contain" />
+            <p className="text-center text-[#ec4899] text-lg font-poppins font-medium leading-relaxed mt-4">Generate a story for your comic.</p>
+          </Link>
+          <Link to="/create-cover" className="card bg-gray-200 rounded-lg shadow-lg p-6 flex flex-col items-center">
+            <h2 className="text-center bg-gradient-to-r from-red-600 via-yellow-400 to-pink-500 bg-clip-text text-4xl font-poppins font-semibold leading-tight tracking-wide filter drop-shadow-md flex flex-wrap justify-center items-center gap-x-3">
+              <span className="text-[#6449ff]">Generate Cover</span>
+            </h2>
+            <img src={coverImage} alt="Cover" className="mt-4 max-h-72 object-contain" />
+            <p className="text-center text-[#ec4899] text-lg font-poppins font-medium leading-relaxed mt-4">Generate a cover for your comic.</p>
+          </Link>
         </div>
       </section>
       <div className="descriptionContainer flex flex-col items-center mt-32 px-4">

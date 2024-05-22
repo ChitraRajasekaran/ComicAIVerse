@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 
 const Post = new mongoose.Schema({
-  name: { type: String, required: true },
-  prompt: { type: String, required: true },
+  name: { type: String },
+  story: { type: String, required: true },
+  prompt: { type: String},
   photo: { type: String, required: true },
 });
 
