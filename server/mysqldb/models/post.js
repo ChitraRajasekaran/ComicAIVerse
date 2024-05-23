@@ -1,15 +1,40 @@
 import mongoose from 'mongoose';
 
 const Post = new mongoose.Schema({
-  name: { type: String },
-  story: { type: String },
-  prompt: { type: String},
-  photo: { type: String, required: true },
+  name: { type: String, required: true },
+  prompt: { type: String, required: true },
+  photo: { type: String, },
+  story: { type: String }, // Add this line
 });
 
 const PostSchema = mongoose.model('Post', Post);
 
 export default PostSchema;
+
+
+// import mongoose from 'mongoose';
+
+// const Post = new mongoose.Schema({
+//   name: { type: String, required: true },
+//   prompt: { type: String, required: true },
+//   photo: { type: String, required: true },
+// });
+
+// const PostSchema = mongoose.model('Post', Post);
+
+// export default PostSchema;
+// import mongoose from 'mongoose';
+
+// const Post = new mongoose.Schema({
+//   name: { type: String },
+//   story: { type: String },
+//   prompt: { type: String},
+//   photo: { type: String, required: true },
+// });
+
+// const PostSchema = mongoose.model('Post', Post);
+
+// export default PostSchema;
 
 // import { Sequelize, DataTypes } from 'sequelize';
 

@@ -53,17 +53,17 @@ const CreateStory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/v1/post', {
+      const response = await fetch('http://localhost:8080/api/v1/post/story', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name: form.name, prompt: form.prompt }),
       });
-
+  
       const data = await response.json();
       if (data.success) {
-        setForm({ ...form, story: data.data.story, images: data.data.images });
+        setForm({ ...form, story: data.data.story });
       } else {
         console.error('Error:', data.message);
       }
@@ -71,6 +71,7 @@ const CreateStory = () => {
       console.error('Error:', error);
     }
   };
+  
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
