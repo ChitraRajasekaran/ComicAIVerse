@@ -60,7 +60,7 @@ const CreateStory = () => {
         },
         body: JSON.stringify({ name: form.name, prompt: form.prompt }),
       });
-  
+
       const data = await response.json();
       if (data.success) {
         setForm({ ...form, story: data.data.story });
@@ -71,7 +71,27 @@ const CreateStory = () => {
       console.error('Error:', error);
     }
   };
-  
+
+  const handleGenerateComicStrip = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/v1/post/comicstrip', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: form.name, prompt: form.prompt, story: form.story }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setForm({ ...form, images: data.data.comicStrip });
+      } else {
+        console.error('Error:', data.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -86,7 +106,7 @@ const CreateStory = () => {
     <section className='max-w-7x1 mx-auto'>
       <div>
         <h1 className='font-extrabold text-[#222328] text-[32px]'>Generate</h1>
-        <p className='mt-2 text-[#666e75] text-[14px] max-w[500px]'> Generate imaginative and visually stunning cover images of comic books and share them with ComicAIVerse community</p>
+        <p className='mt-2 text-[#666e75] text-[14px] max-w[500px]'>Generate imaginative and visually stunning cover images of comic books and share them with ComicAIVerse community</p>
       </div>
       <form className='mt-16 max-w-3x1' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5'>
@@ -125,14 +145,20 @@ const CreateStory = () => {
               <p key={index} className='mb-2'>{line}</p>
             ))}
           </div>
+          <button
+            onClick={handleGenerateComicStrip}
+            className='bg-[#6449ff] text-white px-6 py-2 rounded-md hover:bg-[#5542e3] transition-colors duration-300 mt-4'
+          >
+            Generate Comic Strip
+          </button>
         </div>
       )}
       {form.images.length > 0 && (
         <div className='mt-8'>
-          <h2 className='font-semibold text-lg text-[#222328]'>Generated Images:</h2>
+          <h2 className='font-semibold text-lg text-[#222328]'>Generated Comic Strip:</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4'>
             {form.images.map((image, index) => (
-              <img key={index} src={image} alt={`Generated ${index + 1}`} className='w-full h-auto rounded-md'/>
+              <img key={index} src={image} alt={`Generated ${index + 1}`} className='w-full h-auto rounded-md' />
             ))}
           </div>
         </div>

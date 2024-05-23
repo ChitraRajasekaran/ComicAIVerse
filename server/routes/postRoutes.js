@@ -73,6 +73,50 @@ router.post('/story', async (req, res) => {
   }
 });
 
+// CREATE COMIC STRIP
+router.post('/comicstrip', async (req, res) => {
+  try {
+    const { name, prompt, story } = req.body;
+
+    if (!story) {
+      return res.status(400).json({ success: false, message: 'Story is required to generate a comic strip' });
+    }
+
+    const storyLines = story.split('\n');
+
+    if (storyLines.length !== 5) {
+      return res.status(400).json({ success: false, message: 'The story must have exactly 5 lines' });
+    }
+
+    const images = await Promise.all(
+      storyLines.map(async (line) => {
+        const aiImageResponse = await openai.images.generate({
+          model: 'dall-e-2',
+          prompt: line,
+          n: 1,
+          size: '1024x1024',
+        });
+        // Upload Image to Cloudinary
+        const photoUrl = await cloudinary.uploader.upload(aiImageResponse.data[0].url);
+        return photoUrl.url;
+      })
+    );
+
+    // Create New Post
+    const newPost = await Post.create({
+      name,
+      prompt,
+      story,
+      photo: images[0], // Set the first image as the cover image
+      comicStrip: images, // Add the comicStrip field to the Post model
+    });
+
+    res.status(200).json({ success: true, data: { comicStrip: images } });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Unable to generate comic strip, please try again' });
+  }
+});
 
 
 export default router;
