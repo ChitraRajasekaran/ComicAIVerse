@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { Responsive, WidthProvider } from 'react-grid-layout';
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
+
 
 const FormField = ({ labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe }) => {
   return (
@@ -41,6 +45,8 @@ function getRandomPrompt(prompt) {
 
   return randomPrompt;
 }
+
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
 const CreateStory = () => {
   const [form, setForm] = useState({
@@ -102,11 +108,24 @@ const CreateStory = () => {
     setForm({ ...form, prompt: randomPrompt });
   };
 
+  const calculateLayout = () => {
+    const columns = window.innerWidth > 1200 ? 5 : window.innerWidth > 768 ? 3 : 2;
+
+    return form.images.map((_, index) => ({
+      i: index.toString(),
+      x: (index % columns) * 2,
+      y: Math.floor(index / columns) * 2,
+      w: 2,
+      h: 2,
+    }));
+  };
   return (
     <section className='max-w-7x1 mx-auto'>
       <div>
         <h1 className='font-extrabold text-[#222328] text-[32px]'>Generate</h1>
-        <p className='mt-2 text-[#666e75] text-[14px] max-w[500px]'>Generate imaginative and visually stunning cover images of comic books and share them with ComicAIVerse community</p>
+        <p className='mt-2 text-[#666e75] text-[14px] max-w[500px]'>
+          Generate imaginative and visually stunning cover images of comic books and share them with ComicAIVerse community
+        </p>
       </div>
       <form className='mt-16 max-w-3x1' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-5'>
@@ -156,10 +175,28 @@ const CreateStory = () => {
       {form.images.length > 0 && (
         <div className='mt-8'>
           <h2 className='font-semibold text-lg text-[#222328]'>Generated Comic Strip:</h2>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4'>
-            {form.images.map((image, index) => (
-              <img key={index} src={image} alt={`Generated ${index + 1}`} className='w-full h-auto rounded-md' />
-            ))}
+          <div className="p-2.5 border-2 border-black">
+            <ResponsiveGridLayout
+              className="layout"
+              breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+              cols={{ lg: 10, md: 8, sm: 6, xs: 4, xxs: 2 }}
+              rowHeight={100}
+              margin={[10, 10]}
+              containerPadding={[0, 0]}
+              layout={calculateLayout()}
+              isDraggable={true}
+              isResizable={true}
+            >
+              {form.images.map((image, index) => (
+                <div key={index} data-grid={{ i: index.toString(), x: 0, y: 0, w: 2, h: 2 }}>
+                  <img
+                    src={image}
+                    alt={`Panel ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </ResponsiveGridLayout>
           </div>
         </div>
       )}
