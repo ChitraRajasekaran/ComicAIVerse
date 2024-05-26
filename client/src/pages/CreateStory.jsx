@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-
+import jsPDF from 'jspdf';
+import loadImage from 'load-img';
 
 const FormField = ({ labelName, type, name, placeholder, value, handleChange, isSurpriseMe, handleSurpriseMe }) => {
   return (
@@ -56,6 +57,67 @@ const CreateStory = () => {
     images: [],
   });
 
+  const [images, setImages] = useState([]);
+  const [showDownloadButton, setShowDownloadButton] = useState(false);
+  const [showTip, setShowTip] = useState(false);
+
+  // const handleDownload = () => {
+  //   const doc = new jsPDF();
+
+  //   // Loop through the images and add them to the PDF
+  //   images.forEach((image, index) => {
+  //     doc.addImage(image, 'JPEG', 10, 10 + (index * 100), 200, 100);
+  //   });
+
+  //   // Save the PDF
+  //   doc.save('comic-strip.pdf');
+  // };
+
+
+  const handleDownload = async () => {
+    const doc = new jsPDF('p', 'pt', 'a4'); // Set the PDF document orientation and size
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+  
+    // Loop through the images and add them to the PDF
+    for (const image of images) {
+      const img = await loadImage(image);
+  
+      const imgWidth = img.width;
+      const imgHeight = img.height;
+      const imgRatio = imgWidth / imgHeight;
+      const pageRatio = pageWidth / pageHeight;
+  
+      let imgX, imgY, imgDrawWidth, imgDrawHeight;
+  
+      if (imgRatio >= pageRatio) {
+        // Image is wider than the page
+        imgDrawWidth = pageWidth;
+        imgDrawHeight = pageWidth / imgRatio;
+        imgX = 0;
+        imgY = (pageHeight - imgDrawHeight) / 2;
+      } else {
+        // Image is taller than the page
+        imgDrawHeight = pageHeight;
+        imgDrawWidth = pageHeight * imgRatio;
+        imgX = (pageWidth - imgDrawWidth) / 2;
+        imgY = 0;
+      }
+  
+      if (image !== images[0]) {
+        doc.addPage();
+      }
+  
+      doc.addImage(img, 'JPEG', imgX, imgY, imgDrawWidth, imgDrawHeight);
+    }
+  
+    // Save the PDF
+    doc.save('comic-strip.pdf');
+  };
+
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -90,6 +152,7 @@ const CreateStory = () => {
 
       const data = await response.json();
       if (data.success) {
+        setImages(data.data.comicStrip);
         setForm({ ...form, images: data.data.comicStrip });
       } else {
         console.error('Error:', data.message);
@@ -97,6 +160,8 @@ const CreateStory = () => {
     } catch (error) {
       console.error('Error:', error);
     }
+    setShowDownloadButton(true);
+    setShowTip(true);
   };
 
   const handleChange = (e) => {
@@ -119,6 +184,7 @@ const CreateStory = () => {
       h: 2,
     }));
   };
+
   return (
     <section className='max-w-7x1 mx-auto'>
       <div>
@@ -198,6 +264,21 @@ const CreateStory = () => {
               ))}
             </ResponsiveGridLayout>
           </div>
+          {showDownloadButton && (
+            <div className="ml-auto">
+              <button
+                onClick={handleDownload}
+                className='bg-[#6449ff] text-white px-6 py-2 rounded-md hover:bg-[#5542e3] transition-colors duration-300 mt-4'
+              >
+                Download as PDF
+              </button>
+            </div>
+          )}
+          {showTip && (
+            <div className="ml-auto text-gray-500 font-Italic pl-2.5">
+              Tip: Resize by dragging the bottom left corner of images and rearrange them by dragging and dropping to create your favorite comic strip layout!
+            </div>
+          )}
         </div>
       )}
     </section>
