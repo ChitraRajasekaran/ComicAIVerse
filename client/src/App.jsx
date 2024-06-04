@@ -11,21 +11,21 @@ const App = () => {
         Comic<span className="text-[#ffbf00]">AIVerse</span>
       </Link>
       <nav className="space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
-        <Link to='/create-cover' className='font-inter font-medium text-white px-4 py-2 rounded-md block sm:inline-block'>
+        <Link to='/create-cover' className='font-inter font-medium text-white px-4 py-2 rounded-md block sm:inline-block text-lg'>
           Comic Cover
         </Link>
         {/* <Link to='/create-comic' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
           Generate Comic Strips
         </Link> */}
-        <Link to='/create-story' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block'>
+        <Link to='/create-story' className='font-inter font-medium text-yellow-200 px-4 py-2 rounded-md block sm:inline-block text-lg'>
           Comic Story
         </Link>
-        <Link to='/create-showcase' className='font-inter font-medium text-gray-200 px-4 py-2 rounded-md block sm:inline-block'>
+        <Link to='/create-showcase' className='font-inter font-medium text-gray-200 px-4 py-2 rounded-md block sm:inline-block text-lg'>
           Showcase
         </Link>
-        <Link to='/login' className='font-inter font-medium text-pink-200 px-4 py-2 rounded-md block sm:inline-block'>
+        {/* <Link to='/login' className='font-inter font-medium text-pink-200 px-4 py-2 rounded-md block sm:inline-block'>
           Login
-        </Link>
+        </Link> */}
 
       </nav>
     </header>
