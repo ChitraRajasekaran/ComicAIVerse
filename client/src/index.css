@@ -13,7 +13,7 @@
   }
 }
 
-.prompt:: -webkit-scrollbar {
+.prompt::-webkit-scrollbar {
   width: 5px;
 }
 
