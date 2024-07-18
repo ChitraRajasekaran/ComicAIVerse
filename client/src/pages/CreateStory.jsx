@@ -121,7 +121,7 @@ const CreateStory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/v1/post/story', {
+      const response = await fetch('https://comic-ai-verse-server.vercel.app/api/v1/post/story', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ const CreateStory = () => {
 
   const handleGenerateComicStrip = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/v1/post/comicstrip', {
+      const response = await fetch('https://comic-ai-verse-server.vercel.app/api/v1/post/comicstrip', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
