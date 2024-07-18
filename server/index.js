@@ -15,7 +15,7 @@ dotenv.config();
 const app = express();
 app.use(cors(
     {
-        origin: ['https://comic-ai-verse.vercel.app/'],
+        origin: ['https://comic-ai-verse.vercel.app'],
         methods: ['POST','GET'],
         credentials: true,
     }
