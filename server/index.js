@@ -14,7 +14,7 @@ dotenv.config();
 const app = express();
 
 
-app.use(cors());
+app.use(cors({ origin: 'https://comic-ai-verse.vercel.app', methods: ['POST', 'GET', 'PUT', 'DELETE'] }));
 
 
 app.use(express.json({ limit: '50mb' }));
