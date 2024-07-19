@@ -2,7 +2,7 @@ async function query(data, updateProgress) {
     try{
     console.log("API call initiated");
     const response = await fetch(
-      "http://localhost:8080/api/v1/dalle",
+      "https://comic-ai-verse-server.vercel.app/api/v1/dalle",
       {
         headers: {
           "Content-Type": "application/json",
