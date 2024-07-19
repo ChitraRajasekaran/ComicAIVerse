@@ -20,11 +20,18 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-// Middleware to add CORS headers
-router.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://comic-ai-verse.vercel.app');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+// Use CORS middleware globally
+app.use(cors({
+  origin: 'https://comic-ai-verse.vercel.app',
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type'
+}));
+
+// Middleware to parse JSON
+app.use(express.json());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
