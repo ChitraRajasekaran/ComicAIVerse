@@ -29,6 +29,7 @@ app.use((req, res, next) => {
 
 
 router.route('/').get((req, res) => {
+  req({url: 'https://comic-ai-verse.vercel.app'})
   res.status(200).json({ message: 'Hello from DALL-E!' });
 });
 
