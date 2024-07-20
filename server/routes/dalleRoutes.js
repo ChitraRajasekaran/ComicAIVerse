@@ -22,14 +22,9 @@ app.use(cors({
 // Middleware to parse JSON
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
 
 
 router.route('/').get((req, res) => {
-  req({url: 'https://comic-ai-verse.vercel.app'})
   res.status(200).json({ message: 'Hello from DALL-E!' });
 });
 

@@ -30,10 +30,6 @@ app.use(cors({
 // Middleware to parse JSON
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
 
 //GET ALL POSTS
 router.route('/').get(async (req, res) => {
