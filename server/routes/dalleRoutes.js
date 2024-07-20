@@ -12,16 +12,6 @@ const openai = new OpenAIApi({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Use CORS middleware globally
-app.use(cors({
-  origin: 'https://comic-ai-verse.vercel.app',
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type'
-}));
-
-// Middleware to parse JSON
-app.use(express.json());
-
 
 
 router.route('/').get((req, res) => {
